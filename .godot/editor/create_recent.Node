@@ -1,8 +1,8 @@
+HBoxContainer
 Label
 TextureButton
 VSeparator
 VBoxContainer
-HBoxContainer
 CollisionShape2D
 ProgressBar
 AnimationPlayer

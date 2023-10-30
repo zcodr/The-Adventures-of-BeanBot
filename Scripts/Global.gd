@@ -5,6 +5,8 @@ var player_pos : Vector2 = Vector2(753, 526)
 var player_health : float = 15
 var player_dead : bool = false
 var player_money : float = 0
+var player_won : bool = false
+var player_won_gold : float = 0
 
 var upgrades : Dictionary = {
 	"faster shooting" : false,

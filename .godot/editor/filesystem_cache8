@@ -1,44 +1,44 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1698626681
+::res://::1698636882
 export_presets.cfg::TextFile::-1::1698369596::0::1::::<><>::
 icon.svg::CompressedTexture2D::4306666828824153060::1698120903::1698625240::1::::<><>::
 README.md::TextFile::-1::1698624138::0::1::::<><>::
-UI.tscn::PackedScene::2147561759580235046::1698626681::0::1::::<><>::uid://bto4ne66q8d5i::::res://Fonts/Kiddy Play.ttf
 ::res://Fonts/::1698625240
 Kiddy Play.ttf::FontFile::3750694268897062840::1698602456::1698625240::1::::<><>::
-::res://Scenes/::1698626035
-Arena1.tscn::PackedScene::3712893765042311966::1698614951::0::1::::<><>::res://Scripts/Arena.gd<>uid://bwn6jc52xfksn
-Arena2.tscn::PackedScene::259533297600468357::1698614951::0::1::::<><>::res://Scripts/Arena.gd<>uid://bwn6jc52xfksn
-Arena3.tscn::PackedScene::7924743294242320490::1698614951::0::1::::<><>::res://Scripts/Arena.gd<>uid://b6d7dea6w8jw5
-Arena4.tscn::PackedScene::5709428161295735246::1698614951::0::1::::<><>::res://Scripts/Arena.gd<>uid://b6d7dea6w8jw5
-Arena5.tscn::PackedScene::8113476224155188637::1698614951::0::1::::<><>::res://Scripts/Arena.gd<>uid://b6d7dea6w8jw5
-Arena6.tscn::PackedScene::4904916446604256006::1698614951::0::1::::<><>::res://Scripts/Arena.gd<>uid://b6d7dea6w8jw5
+::res://Scenes/::1698644649
+Arena1.tscn::PackedScene::3712893765042311966::1698644640::0::1::::<><>::res://Scripts/Arena.gd<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://wsq3ix26v8kb::::res://Scenes/Enemy.tscn
+Arena2.tscn::PackedScene::259533297600468357::1698644640::0::1::::<><>::res://Scripts/Arena.gd<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://wsq3ix26v8kb::::res://Scenes/Enemy.tscn
+Arena3.tscn::PackedScene::7924743294242320490::1698644640::0::1::::<><>::res://Scripts/Arena.gd<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://wsq3ix26v8kb::::res://Scenes/Enemy.tscn
+Arena4.tscn::PackedScene::5709428161295735246::1698644640::0::1::::<><>::res://Scripts/Arena.gd<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://wsq3ix26v8kb::::res://Scenes/Enemy.tscn
+Arena5.tscn::PackedScene::8113476224155188637::1698644640::0::1::::<><>::res://Scripts/Arena.gd<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://wsq3ix26v8kb::::res://Scenes/Enemy.tscn
+Arena6.tscn::PackedScene::4904916446604256006::1698644640::0::1::::<><>::res://Scripts/Arena.gd<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://wsq3ix26v8kb::::res://Scenes/Enemy.tscn
 ArenaTrigger.tscn::PackedScene::922920110581552098::1698612473::0::1::::<><>::res://Scripts/ArenaTrigger.gd<>uid://bto4ne66q8d5i
-Bullet.tscn::PackedScene::462496900537097940::1698612473::0::1::::<><>::res://Scripts/Bullet.gd<>uid://csd0d51sorvrg
-CameraTrigger.tscn::PackedScene::5817835778771813793::1698612474::0::1::::<><>::res://Scripts/CameraTrigger.gd
+Bullet.tscn::PackedScene::462496900537097940::1698644640::0::1::::<><>::res://Scripts/Bullet.gd<>uid://csd0d51sorvrg::::res://Sounds/laserShoot (5).wav<>uid://buaxwjv2xi183::::res://Sounds/explosion (2).wav
+CameraTrigger.tscn::PackedScene::5817835778771813793::1698644640::0::1::::<><>::res://Scripts/CameraTrigger.gd
 Door.tscn::PackedScene::4912348191885098196::1698612473::0::1::::<><>::res://Scripts/Door.gd<>uid://k4crvqh53lk5
-Enemy.tscn::PackedScene::1582335290709738385::1698612473::0::1::::<><>::res://Scripts/Enemy.gd<>uid://cd1b077w0kcxm
-Game.tscn::PackedScene::1509975264565723847::1698620166::0::1::::<><>::uid://nxoyoftg38t8
-Ghost.tscn::PackedScene::1547617287981894273::1698623664::0::1::::<><>::uid://bm27is8xo5ij6
-Player.tscn::PackedScene::960829296513598347::1698612473::0::1::::<><>::uid://bctg5u2r55v7m
-::res://Scripts/::1698626043
-Arena.gd::GDScript::-1::1698614573::0::1::::<>Node2D<>::
+Enemy.tscn::PackedScene::1582335290709738385::1698644640::0::1::::<><>::res://Scripts/Enemy.gd<>uid://cd1b077w0kcxm::::res://Sprites/Enemy.png
+Game.tscn::PackedScene::1509975264565723847::1698644649::0::1::::<><>::uid://nxoyoftg38t8::::res://Scenes/Player.tscn<>uid://bwn6jc52xfksn::::res://Sprites/Tileset.tres<>uid://5uka736pdmeg::::res://Scenes/UI.tscn<>uid://nfcmhpdyn4ok::::res://Scenes/ArenaTrigger.tscn<>uid://wbxbbnvcyshl::::res://Scenes/Ghost.tscn<>uid://cb8twlrn4mg6o::::res://Scenes/Door.tscn<>uid://co5g51refku4x::::res://Scenes/CameraTrigger.tscn
+Ghost.tscn::PackedScene::1547617287981894273::1698644640::0::1::::<><>::uid://bm27is8xo5ij6::::res://Sprites/Ghost.png<>res://Scripts/Ghost.gd<>uid://bto4ne66q8d5i::::res://Fonts/Kiddy Play.ttf
+Player.tscn::PackedScene::960829296513598347::1698644640::0::1::::<><>::uid://bctg5u2r55v7m::::res://Sprites/Player.png<>res://Scripts/Player.gd<>uid://pwk2b1a8em13::::res://Sounds/stomp.wav
+UI.tscn::PackedScene::2147561759580235046::1698644623::0::1::::<><>::res://Scripts/UI.gd<>uid://bto4ne66q8d5i::::res://Fonts/Kiddy Play.ttf<>uid://b2mgf5rvj0dt1::::res://icon.svg
+::res://Scripts/::1698643228
+Arena.gd::GDScript::-1::1698643228::0::1::::<>Node2D<>::
 ArenaTrigger.gd::GDScript::-1::1698612093::0::1::::<>Area2D<>::
-Bullet.gd::GDScript::-1::1698606306::0::1::::<>CharacterBody2D<>::
-CameraTrigger.gd::GDScript::-1::1698609484::0::1::::<>Area2D<>::
+Bullet.gd::GDScript::-1::1698632500::0::1::::<>CharacterBody2D<>::
+CameraTrigger.gd::GDScript::-1::1698642730::0::1::::<>Area2D<>::
 Door.gd::GDScript::-1::1698611905::0::1::::<>StaticBody2D<>::
-Enemy.gd::GDScript::-1::1698609897::0::1::::<>CharacterBody2D<>::
+Enemy.gd::GDScript::-1::1698634438::0::1::::<>CharacterBody2D<>::
 Ghost.gd::GDScript::-1::1698290796::0::1::::<>AnimatedSprite2D<>::
-Global.gd::GDScript::-1::1698614216::0::1::::<>Node<>::
-Player.gd::GDScript::-1::1698609088::0::1::::<>CharacterBody2D<>::
-UI.gd::GDScript::-1::1698626043::0::1::::<>CanvasLayer<>::
+Global.gd::GDScript::-1::1698641494::0::1::::<>Node<>::
+Player.gd::GDScript::-1::1698643211::0::1::::<>CharacterBody2D<>::
+UI.gd::GDScript::-1::1698643101::0::1::::<>CanvasLayer<>::
 ::res://Sounds/::1698625240
 explosion (2).wav::AudioStreamWAV::3791633841162166966::1698524716::1698625240::1::::<><>::
 explosion (3).wav::AudioStreamWAV::3751511708597479954::1698606395::1698625240::1::::<><>::
 hitHurt (3).wav::AudioStreamWAV::3824571369622206740::1698455858::1698625240::1::::<><>::
 laserShoot (5).wav::AudioStreamWAV::6043958585036499140::1698606506::1698625240::1::::<><>::
 stomp.wav::AudioStreamWAV::1098904444255433712::1698458779::1698625240::1::::<><>::
-::res://Sprites/::1698625240
+::res://Sprites/::1698644709
 Enemy.png::CompressedTexture2D::5037188812960572098::1698257944::1698625240::1::::<><>::
 FloorTiles.png::CompressedTexture2D::1984376671629282638::1698419110::1698625240::1::::<><>::
 Ghost.png::CompressedTexture2D::3286383234292630113::1698614938::1698625240::1::::<><>::
@@ -46,5 +46,6 @@ LockedDoor.png::CompressedTexture2D::761908311796448830::1698452115::1698625240:
 PathTiles.png::CompressedTexture2D::6461420639487893171::1698447967::1698625240::1::::<><>::
 Player.png::CompressedTexture2D::2566440517060466128::1698368967::1698625240::1::::<><>::
 PropTiles.png::CompressedTexture2D::3958009373806546031::1698447556::1698625240::1::::<><>::
-Tileset.tres::TileSet::3959310606102028689::1698619685::0::1::::<><>::uid://3jinnkkgy11s
+Tileset.tres::TileSet::3959310606102028689::1698636919::0::1::::<><>::uid://3jinnkkgy11s::::res://Sprites/FloorTiles.png<>uid://cyb7wh6fpuuhf::::res://Sprites/PathTiles.png<>uid://cwwct0c8r5op8::::res://Sprites/WallTiles.png<>uid://bwnj3osvquxvj::::res://Sprites/PropTiles.png
 WallTiles.png::CompressedTexture2D::6362568919778600567::1698279252::1698625240::1::::<><>::
+X.png::CompressedTexture2D::8367079710791685017::1698644694::1698644710::1::::<><>::

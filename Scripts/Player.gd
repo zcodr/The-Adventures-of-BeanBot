@@ -7,6 +7,10 @@ var BulletScene : PackedScene = preload("res://Scenes/Bullet.tscn")
 var can_shoot : bool = true
 
 func _ready():
+	if get_tree().current_scene.name == "Game":
+		global_position = Global.player_pos
+
+func _physics_process(_delta):
 	$AttackCooldown.wait_time = 0.5
 	if Global.upgrades["faster shooting"]:
 		$AttackCooldown.wait_time = 0.333
@@ -14,10 +18,7 @@ func _ready():
 		$AttackCooldown.wait_time = 0.25
 	if Global.upgrades["mini gun"]:
 		$AttackCooldown.wait_time = 0.1
-	if get_tree().current_scene.name == "Game":
-		global_position = Global.player_pos
-
-func _physics_process(_delta):
+		
 	Global.player_health = health
 	velocity = Vector2.ZERO
 	if !Global.player_dead:
@@ -58,7 +59,6 @@ func _physics_process(_delta):
 
 func takedamage():
 	health -= 1
-	print("player health: ", health)
 	if (health <= 0):
 		$DeathTimer.start()
 		$DeathParticles.emitting = true

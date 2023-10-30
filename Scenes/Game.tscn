@@ -290,7 +290,7 @@ position = Vector2(-231, -1497)
 text = "This will open one of the doors in front of the party"
 
 [node name="Ghost8" parent="Ghosts" instance=ExtResource("4_tkgb7")]
-position = Vector2(185, -143)
+position = Vector2(184, -128)
 text = "Keep heading straight to make it to the party"
 
 [node name="Ghost9" parent="Ghosts" instance=ExtResource("4_tkgb7")]
@@ -298,9 +298,19 @@ position = Vector2(388, -1006)
 text = "You're almost at the party"
 
 [node name="Ghost10" parent="Ghosts" instance=ExtResource("4_tkgb7")]
-position = Vector2(894, -1174)
+position = Vector2(880, -1104)
 animation = &"move"
-text = "OOF! You need to find a red and green arena to unlock those doors"
+text = "You're going to have to find a red and green arena to unlock those doors"
+
+[node name="Ghost11" parent="Ghosts" instance=ExtResource("4_tkgb7")]
+position = Vector2(192, -512)
+animation = &"move"
+text = "Keep Going Straight"
+
+[node name="Ghost12" parent="Ghosts" instance=ExtResource("4_tkgb7")]
+position = Vector2(640, -1176)
+animation = &"move"
+text = "OOOOF!"
 
 [node name="CameraTriggers" type="Node2D" parent="."]
 visible = false

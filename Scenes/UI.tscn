@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://5uka736pdmeg"]
+[gd_scene load_steps=19 format=3 uid="uid://5uka736pdmeg"]
 
 [ext_resource type="Script" path="res://Scripts/UI.gd" id="1_whd0r"]
 [ext_resource type="FontFile" uid="uid://bto4ne66q8d5i" path="res://Fonts/Kiddy Play.ttf" id="2_65w6w"]
@@ -59,17 +59,21 @@ grow_end = -20.0
 thickness = 8
 vertical = true
 
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_rlbkj"]
-color = Color(0.247059, 0.184314, 0.0666667, 1)
-grow_begin = -20.0
-grow_end = -20.0
-thickness = 8
-vertical = true
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htmr7"]
+bg_color = Color(0.409028, 0.737255, 0.402145, 1)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_blend = true
 
-[sub_resource type="Animation" id="Animation_4sweu"]
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_n7sdo"]
+color = Color(0.270588, 0.454902, 0.239216, 1)
+thickness = 15
+
+[sub_resource type="Animation" id="Animation_bl00k"]
 resource_name = "DeathScreen"
 length = 0.5
-step = 0.05
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -80,7 +84,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(0, -648), Vector2(0, 0)]
+"values": [Vector2(336, -640), Vector2(330.5, 161)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -95,7 +99,7 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_fdi60"]
+[sub_resource type="Animation" id="Animation_wq8xp"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -107,7 +111,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -648)]
+"values": [Vector2(336, -640)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -124,64 +128,118 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("ShopScreen/PanelContainer:modulate")
+tracks/2/path = NodePath("ShopScreen/CenterContainer:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 0)]
+"values": [Vector2(-1424, 56)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("ShopScreen/CenterContainer:position")
+tracks/3/path = NodePath("ShopScreen/PanelContainer:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-1152, 0)]
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("WinScreen/CenterContainer:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(330, 936)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("WinScreen/PanelContainer:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
-[sub_resource type="Animation" id="Animation_lo5lj"]
+[sub_resource type="Animation" id="Animation_rgfxa"]
 resource_name = "ShopScreen"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("ShopScreen/PanelContainer:modulate")
+tracks/0/path = NodePath("ShopScreen/CenterContainer:position")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+"values": [Vector2(-1424, 56), Vector2(-96, 56)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("ShopScreen/CenterContainer:position")
+tracks/1/path = NodePath("ShopScreen/PanelContainer:modulate")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-1152, 0), Vector2(0, 0)]
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_d40p2"]
+resource_name = "WinScreen"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WinScreen/CenterContainer:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(330, 936), Vector2(324.5, 161)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("WinScreen/PanelContainer:modulate")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_l4k7y"]
 _data = {
-"DeathScreen": SubResource("Animation_4sweu"),
-"RESET": SubResource("Animation_fdi60"),
-"ShopScreen": SubResource("Animation_lo5lj")
+"DeathScreen": SubResource("Animation_bl00k"),
+"RESET": SubResource("Animation_wq8xp"),
+"ShopScreen": SubResource("Animation_rgfxa"),
+"WinScreen": SubResource("Animation_d40p2")
 }
 
 [node name="UI" type="CanvasLayer"]
+process_mode = 3
 script = ExtResource("1_whd0r")
 
 [node name="ShopButton" type="Button" parent="."]
@@ -189,6 +247,7 @@ offset_left = 848.0
 offset_top = 584.0
 offset_right = 960.0
 offset_bottom = 640.0
+focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -200,6 +259,9 @@ offset_left = 984.0
 offset_top = 592.0
 offset_right = 1096.0
 offset_bottom = 625.0
+theme_override_colors/font_color = Color(0.72549, 0.639216, 0.14902, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 10
 theme_override_fonts/font = SubResource("FontVariation_ghamm")
 theme_override_font_sizes/font_size = 30
 text = "0 : Gold"
@@ -217,6 +279,7 @@ fill_mode = 3
 show_percentage = false
 
 [node name="DeathScreen" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -237,11 +300,15 @@ mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="DeathScreen"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -648.0
-offset_bottom = -648.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -240.0
+offset_top = -964.0
+offset_right = 251.0
+offset_bottom = -638.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -278,6 +345,7 @@ theme_override_styles/separator = SubResource("StyleBoxLine_l3cnf")
 
 [node name="RetryBattle" type="Button" parent="DeathScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -286,6 +354,7 @@ text = "Retry Battle"
 
 [node name="ReturnToWorld" type="Button" parent="DeathScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -293,10 +362,8 @@ theme_override_font_sizes/font_size = 45
 text = "Return to World
 "
 
-[node name="TextureButton" type="TextureButton" parent="DeathScreen/CenterContainer/PanelContainer/MarginContainer"]
-layout_mode = 2
-
 [node name="ShopScreen" type="Control" parent="."]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -317,11 +384,15 @@ mouse_filter = 2
 
 [node name="CenterContainer" type="CenterContainer" parent="ShopScreen"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1152.0
-offset_right = -1152.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -2000.0
+offset_top = -268.0
+offset_right = -649.0
+offset_bottom = 312.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
@@ -343,13 +414,40 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="CloseShop" type="TextureButton" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+focus_mode = 0
+texture_normal = ExtResource("3_6puyf")
+stretch_mode = 0
+
+[node name="VSeparator4" type="VSeparator" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 180
+
+[node name="Label" type="Label" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
 theme_override_constants/shadow_outline_size = 25
 theme_override_fonts/font = ExtResource("2_65w6w")
 theme_override_font_sizes/font_size = 120
 text = "shop"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="VSeparator5" type="VSeparator" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 260
+
+[node name="Label2" type="Label" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 120
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -364,9 +462,22 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 
+[node name="Label" type="Label" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.811765, 0.698039, 0.584314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 45
+text = "tier 1 (3 gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="FasterShooting" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -377,6 +488,8 @@ text = "faster shooting"
 [node name="MoreProjectiles" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -387,6 +500,8 @@ text = "more projectiles"
 [node name="GreaterDamage" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -403,9 +518,22 @@ theme_override_styles/separator = SubResource("StyleBoxLine_5da4t")
 layout_mode = 2
 alignment = 1
 
+[node name="Label2" type="Label" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.811765, 0.698039, 0.584314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 45
+text = "tier 2 (6 gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MachineGun" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -416,6 +544,8 @@ text = "machine gun"
 [node name="ShotGun" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -426,6 +556,8 @@ text = "shotgun"
 [node name="Rifle" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -433,13 +565,31 @@ theme_override_font_sizes/font_size = 45
 disabled = true
 text = "Rifle"
 
+[node name="VSeparator2" type="VSeparator" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+theme_override_styles/separator = SubResource("StyleBoxLine_5da4t")
+
 [node name="VBoxContainer3" type="VBoxContainer" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 alignment = 2
 
+[node name="Label3" type="Label" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.811765, 0.698039, 0.584314, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 45
+text = "tier 3 (9 gold)"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="MiniGun" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -450,6 +600,8 @@ text = "mini gun"
 [node name="PumpShotGun" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -460,6 +612,8 @@ text = "Pump ShotGun"
 [node name="Bazooka" type="Button" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3"]
 unique_name_in_owner = true
 layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_color = Color(0.4, 0.690196, 0.294118, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("2_65w6w")
@@ -467,17 +621,95 @@ theme_override_font_sizes/font_size = 45
 disabled = true
 text = "bazooka"
 
-[node name="VSeparator2" type="VSeparator" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 20
-theme_override_styles/separator = SubResource("StyleBoxLine_rlbkj")
+[node name="WinScreen" type="Control" parent="."]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
 
-[node name="CloseShop" type="TextureButton" parent="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="WinScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = 612.0
+offset_right = 257.0
+offset_bottom = 948.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="WinScreen/CenterContainer"]
 layout_mode = 2
-texture_normal = ExtResource("3_6puyf")
-stretch_mode = 3
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_htmr7")
+
+[node name="MarginContainer" type="MarginContainer" parent="WinScreen/CenterContainer/PanelContainer"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="WinScreen/CenterContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 120
+text = "YOU WON"
+
+[node name="Label2" type="Label" parent="WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.886275, 0.780392, 0.239216, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 25
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 40
+text = "you got: 0 gold"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator" type="HSeparator" parent="WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 40
+theme_override_styles/separator = SubResource("StyleBoxLine_n7sdo")
+
+[node name="ReturnToWorld" type="Button" parent="WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+focus_mode = 0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_65w6w")
+theme_override_font_sizes/font_size = 45
+text = "Return to World
+"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
 libraries = {
 "": SubResource("AnimationLibrary_l4k7y")
 }
@@ -485,5 +717,14 @@ libraries = {
 [connection signal="pressed" from="ShopButton" to="." method="_on_shop_button_pressed"]
 [connection signal="pressed" from="DeathScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/RetryBattle" to="." method="_on_retry_battle_pressed"]
 [connection signal="pressed" from="DeathScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ReturnToWorld" to="." method="_on_return_to_world_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/CloseShop" to="." method="_on_close_shop_pressed"]
 [connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/FasterShooting" to="." method="_on_faster_shooting_pressed"]
-[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/CloseShop" to="." method="_on_close_shop_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/MoreProjectiles" to="." method="_on_more_projectiles_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer/GreaterDamage" to="." method="_on_greater_damage_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/MachineGun" to="." method="_on_machine_gun_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/ShotGun" to="." method="_on_shot_gun_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer2/Rifle" to="." method="_on_rifle_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/MiniGun" to="." method="_on_mini_gun_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/PumpShotGun" to="." method="_on_pump_shot_gun_pressed"]
+[connection signal="pressed" from="ShopScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxContainer3/Bazooka" to="." method="_on_bazooka_pressed"]
+[connection signal="pressed" from="WinScreen/CenterContainer/PanelContainer/MarginContainer/VBoxContainer/ReturnToWorld" to="." method="_on_return_to_world_pressed"]
