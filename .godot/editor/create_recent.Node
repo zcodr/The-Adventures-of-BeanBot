@@ -1,0 +1,17 @@
+Label
+TextureButton
+VSeparator
+VBoxContainer
+HBoxContainer
+CollisionShape2D
+ProgressBar
+AnimationPlayer
+Button
+HSeparator
+VSplitContainer
+MarginContainer
+PanelContainer
+CenterContainer
+Panel
+Control
+CanvasLayer

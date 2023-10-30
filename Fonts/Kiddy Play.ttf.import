@@ -1,0 +1,33 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bto4ne66q8d5i"
+path="res://.godot/imported/Kiddy Play.ttf-94ca0ae5a4339ee1655d7642be0e91c7.fontdata"
+
+[deps]
+
+source_file="res://Fonts/Kiddy Play.ttf"
+dest_files=["res://.godot/imported/Kiddy Play.ttf-94ca0ae5a4339ee1655d7642be0e91c7.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[]
+language_support={}
+script_support={}
+opentype_features={}

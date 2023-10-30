@@ -1,0 +1,123 @@
+[gd_scene load_steps=12 format=3 uid="uid://nfcmhpdyn4ok"]
+
+[ext_resource type="Script" path="res://Scripts/ArenaTrigger.gd" id="1_i08ko"]
+[ext_resource type="FontFile" uid="uid://bto4ne66q8d5i" path="res://Fonts/Kiddy Play.ttf" id="2_lo6jd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y4n88"]
+radius = 28.0713
+
+[sub_resource type="Curve" id="Curve_h6nff"]
+max_value = 100.0
+_data = [Vector2(0, 100), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_t6m8p"]
+_data = [Vector2(0, 1), 0.0, -0.0438679, 0, 0, Vector2(0.5, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50531), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_wy4tg"]
+resource_local_to_scene = true
+offsets = PackedFloat32Array(0.503311, 1)
+colors = PackedColorArray(0.992157, 1, 0.533333, 1, 1, 0, 0.161145, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_csi63"]
+
+[sub_resource type="FontVariation" id="FontVariation_gviem"]
+base_font = ExtResource("2_lo6jd")
+spacing_glyph = 1
+
+[sub_resource type="Animation" id="Animation_4vpbx"]
+resource_name = "TextHide"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ngbm8"]
+resource_name = "TextShow"
+length = 0.25
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_c7br3"]
+_data = {
+"TextHide": SubResource("Animation_4vpbx"),
+"TextShow": SubResource("Animation_ngbm8")
+}
+
+[node name="ArenaTrigger" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_i08ko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_y4n88")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 200
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 25.0
+initial_velocity_max = 25.0
+angular_velocity_min = 130.0
+angular_velocity_max = 130.0
+orbit_velocity_min = 0.25
+orbit_velocity_max = 0.25
+damping_min = 0.1
+damping_max = 0.1
+damping_curve = SubResource("Curve_h6nff")
+scale_amount_min = 2.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_t6m8p")
+color_ramp = SubResource("Gradient_wy4tg")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+self_modulate = Color(0.972549, 1, 0.533333, 1)
+position = Vector2(0, 1.90735e-06)
+scale = Vector2(16.0181, 16.0181)
+mesh = SubResource("SphereMesh_csi63")
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 1
+offset_left = -77.0
+offset_top = -75.0
+offset_right = 77.0
+offset_bottom = -35.0
+theme_override_colors/font_color = Color(1, 0.0313726, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 5
+theme_override_fonts/font = SubResource("FontVariation_gviem")
+text = "Press E to enter battle arena.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 162
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_c7br3")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

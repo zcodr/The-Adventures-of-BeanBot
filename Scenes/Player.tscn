@@ -1,0 +1,95 @@
+[gd_scene load_steps=9 format=3 uid="uid://nxoyoftg38t8"]
+
+[ext_resource type="Texture2D" uid="uid://bctg5u2r55v7m" path="res://Sprites/Player.png" id="1_avrsh"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_bnjyj"]
+[ext_resource type="AudioStream" uid="uid://pwk2b1a8em13" path="res://Sounds/stomp.wav" id="3_rbrlg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0togw"]
+radius = 12.0
+
+[sub_resource type="Curve" id="Curve_xi0hv"]
+_data = [Vector2(0.00873966, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_ed2pr"]
+colors = PackedColorArray(0.00922119, 0, 0.566406, 1, 0.34516, 0.337526, 0.5, 1)
+
+[sub_resource type="Animation" id="Animation_3s7pd"]
+resource_name = "DeathAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8unj4"]
+_data = {
+"DeathAnimation": SubResource("Animation_3s7pd")
+}
+
+[node name="Player" type="CharacterBody2D"]
+collision_layer = 2
+motion_mode = 1
+script = ExtResource("1_bnjyj")
+speed = 100.0
+health = 15.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0togw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_avrsh")
+region_rect = Rect2(161, 189, 7, 0)
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_xi0hv")
+color_ramp = SubResource("Gradient_ed2pr")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_8unj4")
+}
+
+[node name="WalkSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rbrlg")
+volume_db = -10.0
+pitch_scale = 3.0
+
+[node name="WalkSFXTimer" type="Timer" parent="."]
+wait_time = 0.35
+autostart = true
+
+[node name="AttackCooldown" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="WalkSFXTimer" to="." method="_on_walk_sfx_timer_timeout"]
+[connection signal="timeout" from="AttackCooldown" to="." method="_on_attack_cooldown_timeout"]

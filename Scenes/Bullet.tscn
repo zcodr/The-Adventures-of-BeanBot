@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://gubiym1dibmi"]
+
+[ext_resource type="Script" path="res://Scripts/Bullet.gd" id="1_43cwt"]
+[ext_resource type="AudioStream" uid="uid://csd0d51sorvrg" path="res://Sounds/laserShoot (5).wav" id="2_k25qi"]
+[ext_resource type="AudioStream" uid="uid://buaxwjv2xi183" path="res://Sounds/explosion (2).wav" id="3_k3tb3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_65gik"]
+radius = 3.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g0dxl"]
+radius = 2.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_7pb5m"]
+
+[sub_resource type="Curve" id="Curve_prban"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.764949, 0.452212), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_ys274"]
+offsets = PackedFloat32Array(0, 0.556291, 1)
+colors = PackedColorArray(0.478431, 0.439216, 0.25098, 1, 0.878431, 0.74902, 0.309804, 1, 1, 1, 1, 1)
+
+[node name="Bullet" type="CharacterBody2D"]
+z_index = 2
+collision_layer = 4
+motion_mode = 1
+script = ExtResource("1_43cwt")
+speed = 200.0
+
+[node name="CollisionCheck" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionCheck"]
+shape = SubResource("CircleShape2D_65gik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g0dxl")
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+self_modulate = Color(0.756863, 0.8, 0.0156863, 1)
+position = Vector2(0, 1.19209e-06)
+scale = Vector2(6, 6)
+mesh = SubResource("SphereMesh_7pb5m")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 25
+lifetime = 0.5
+local_coords = true
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(-1, 0)
+spread = 10.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 30.0
+scale_amount_curve = SubResource("Curve_prban")
+color_ramp = SubResource("Gradient_ys274")
+
+[node name="ShootSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_k25qi")
+volume_db = -8.0
+pitch_scale = 2.0
+
+[node name="ExplodeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_k3tb3")
+volume_db = -8.0
+
+[connection signal="body_entered" from="CollisionCheck" to="." method="_on_collision_check_body_entered"]
+[connection signal="finished" from="ExplodeSFX" to="." method="_on_explode_sfx_finished"]

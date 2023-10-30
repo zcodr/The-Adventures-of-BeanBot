@@ -1,0 +1,166 @@
+[gd_scene load_steps=16 format=3 uid="uid://wsq3ix26v8kb"]
+
+[ext_resource type="Script" path="res://Scripts/Enemy.gd" id="1_ncbxh"]
+[ext_resource type="Texture2D" uid="uid://cd1b077w0kcxm" path="res://Sprites/Enemy.png" id="1_oudy0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lisw7"]
+radius = 18.0
+height = 38.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yu1n8"]
+radius = 15.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hic1m"]
+radius = 1904.82
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_asmt5"]
+atlas = ExtResource("1_oudy0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rqt2l"]
+atlas = ExtResource("1_oudy0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evpe3"]
+atlas = ExtResource("1_oudy0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrub5"]
+atlas = ExtResource("1_oudy0")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_at5dw"]
+atlas = ExtResource("1_oudy0")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_uljhd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_asmt5")
+}],
+"loop": true,
+"name": &"Default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rqt2l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evpe3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrub5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_at5dw")
+}],
+"loop": true,
+"name": &"Move",
+"speed": 12.0
+}]
+
+[sub_resource type="Curve" id="Curve_cumne"]
+_data = [Vector2(0.00873966, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_vuiun"]
+colors = PackedColorArray(0.854902, 0.847059, 0.215686, 1, 0.335436, 0.375, 0.135894, 1)
+
+[sub_resource type="Animation" id="Animation_ir6pl"]
+resource_name = "DeathAnimation"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../AnimatedSprite2D:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gigqn"]
+_data = {
+"DeathAnimation": SubResource("Animation_ir6pl")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 3
+motion_mode = 1
+script = ExtResource("1_ncbxh")
+speed = 75.0
+
+[node name="CollisionCheck" type="Area2D" parent="."]
+collision_mask = 7
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollisionCheck"]
+shape = SubResource("CapsuleShape2D_lisw7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_yu1n8")
+
+[node name="PlayerCheck" type="Area2D" parent="."]
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerCheck"]
+visible = false
+shape = SubResource("CircleShape2D_hic1m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+rotation = 1.57079
+scale = Vector2(1.09849, 1.09849)
+sprite_frames = SubResource("SpriteFrames_uljhd")
+animation = &"Default"
+frame_progress = 0.210677
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 15.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 30.0
+initial_velocity_max = 50.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_cumne")
+color_ramp = SubResource("Gradient_vuiun")
+
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../DeathParticles")
+libraries = {
+"": SubResource("AnimationLibrary_gigqn")
+}
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+modulate = Color(1, 0, 0, 1)
+offset_left = -24.0
+offset_top = -33.0
+offset_right = 24.0
+offset_bottom = -25.0
+max_value = 3.0
+value = 2.0
+show_percentage = false
+
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
